@@ -17,6 +17,7 @@ h1 {
 }
 
 html {
+  background-color: rgb(17,17,26);
   background-image: url('/src/assets/background.jpg');
   position: relative; 
   width: 100%; 
