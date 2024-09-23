@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Blood';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/src/assets/blood.ttf) format('truetype');
+  }
+}
+
+h1 {
+  font-family: 'Blood', sans-serif;
+}
+
+html {
+  background-image: url('/src/assets/background.jpg');
+  position: relative; 
+  width: 100%; 
+  min-height: 100vh; 
+  overflow: hidden;
+  background-repeat: no-repeat; 
+  background-size: cover; 
+}
+
