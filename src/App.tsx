@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <div className="absolute inset-0 h-full w-full bg-gray-900/60"></div>
-      <div className="grid min-h-screen px-8">
-        <div className="container relative z-10 mx-auto my-auto grid place-items-center text-center">
+      <div className="grid min-h-screen">
+        <div className="container relative z-10 mx-auto my-auto grid place-items-center px-8 text-center">
           <h3 className="mb-2 block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
             <span className="invisible">i</span>
             <TypeAnimation
