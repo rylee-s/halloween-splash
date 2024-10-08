@@ -87,20 +87,17 @@ export default function Form() {
     if (anyInvalid) {
       e.preventDefault();
     } else {
-      const data = users.reduce<{ [key: string]: string }>(
-        (acc, { firstName, lastName }, index) => {
-          acc[`names[${index}][firstName]`] = firstName;
-          acc[`names[${index}][lastName]`] = lastName;
-          return acc;
-        },
-        {},
-      );
+      const names = users.map((user) => ({
+        firstName: user.firstName,
+        lastName: user.lastName,
+      }));
+
       fetch(`${endpoint}rsvp/halloween2024`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(names),
       });
     }
   };
