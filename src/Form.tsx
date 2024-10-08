@@ -41,6 +41,8 @@ export default function Form() {
     },
   ]);
 
+  const [complete, setComplete] = useState(false);
+
   const addUser = () => {
     setUsers([
       ...users,
@@ -98,7 +100,13 @@ export default function Form() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(names),
-      });
+      })
+        .then(() => {
+          setComplete(true);
+        })
+        .catch(() => {
+          alert("Something went wrong. Please try again.");
+        });
     }
   };
 
@@ -107,6 +115,16 @@ export default function Form() {
       <DialogTrigger asChild>
         <Button variant="outline">RSVP</Button>
       </DialogTrigger>
+      {complete && (
+        <DialogContent className="bg-black text-white sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Thanks for RSVPing!</DialogTitle>
+            <DialogDescription>
+              We can't wait to see you at Spookfest!
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      )}
       <DialogContent className="bg-black text-white sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Whose Coming?</DialogTitle>

@@ -1,6 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
 import { useState } from "react";
 import Form from "./Form";
+import PartyDetails from "./PartyDetails";
 
 function App() {
   const [typingComplete, setTypingComplete] = useState(false);
@@ -46,6 +47,7 @@ function App() {
             className={`${showAnimationClass} flex justify-center space-x-4`}
           >
             <Form />
+            <PartyDetails />
           </div>
         </div>
       </div>
