@@ -87,12 +87,14 @@ export default function Form() {
     if (anyInvalid) {
       e.preventDefault();
     } else {
-      // Submit the form to localhost:5001/rsvp/halloween2024
-      // with the users array as the body with only firstName and lastName
-      const data = users.map(({ firstName, lastName }) => ({
-        firstName,
-        lastName,
-      }));
+      const data = users.reduce<{ [key: string]: string }>(
+        (acc, { firstName, lastName }, index) => {
+          acc[`names[${index}][firstName]`] = firstName;
+          acc[`names[${index}][lastName]`] = lastName;
+          return acc;
+        },
+        {},
+      );
       fetch(`${endpoint}rsvp/halloween2024`, {
         method: "POST",
         headers: {
