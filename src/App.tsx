@@ -1,5 +1,6 @@
 import { TypeAnimation } from "react-type-animation";
 import { useState } from "react";
+import Form from "./Form";
 
 function App() {
   const [typingComplete, setTypingComplete] = useState(false);
@@ -44,12 +45,7 @@ function App() {
           <div
             className={`${showAnimationClass} flex justify-center space-x-4`}
           >
-            <button
-              className="text-blue-gray-900 shadow-blue-gray-500/10 hover:shadow-blue-gray-500/20 select-none rounded-lg bg-white px-6 py-3 text-center align-middle font-sans text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
-            >
-              RSVP
-            </button>
+            <Form />
           </div>
         </div>
       </div>

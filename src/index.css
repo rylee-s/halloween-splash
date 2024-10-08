@@ -10,6 +10,9 @@
     font-display: swap;
     src: url(/src/assets/blood.ttf) format('truetype');
   }
+  :root {
+    --radius: 0.5rem;
+  }
 }
 
 h1 {
