@@ -62,11 +62,13 @@ export default function Form() {
 
   const isInvalid = (name: string) => name.trim().length === 0;
 
-  const anyInvalid = users.some(
-    (user) =>
-      (user.touched.firstName && isInvalid(user.firstName)) ||
-      (user.touched.lastName && isInvalid(user.lastName)),
-  );
+  const anyInvalid = () => {
+    return users.some(
+      (user) =>
+        (user.touched.firstName && isInvalid(user.firstName)) ||
+        (user.touched.lastName && isInvalid(user.lastName)),
+    );
+  };
 
   const handleInputChange = (index: number, field: string, value: string) => {
     const newUsers = [...users];
@@ -86,7 +88,7 @@ export default function Form() {
       user.touched.lastName = true;
     });
     setUsers(newUsers);
-    if (anyInvalid) {
+    if (anyInvalid()) {
       e.preventDefault();
     } else {
       const names = users.map((user) => ({
@@ -196,7 +198,7 @@ export default function Form() {
         <DialogFooter>
           <Button
             type="submit"
-            disabled={anyInvalid}
+            disabled={anyInvalid()}
             onClick={handleSubmitClick}
             className="w-full bg-red-700 text-white"
           >
